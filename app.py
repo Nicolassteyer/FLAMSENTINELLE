@@ -36,10 +36,6 @@ st.markdown(
             border: 0 !important;
             display: block !important;
         }
-
-        div[data-testid="stVerticalBlock"] > div:has(iframe) {
-            height: 100vh !important;
-        }
     </style>
     """,
     unsafe_allow_html=True,
@@ -50,6 +46,6 @@ html_content = html_path.read_text(encoding="utf-8")
 
 components.html(
     html_content,
-    height=1,
-    scrolling=False,
+    height=1200,
+    scrolling=True,
 )
