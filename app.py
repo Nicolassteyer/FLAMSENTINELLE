@@ -12,30 +12,33 @@ st.set_page_config(
 st.markdown(
     """
     <style>
+        html, body, [data-testid="stAppViewContainer"], .stApp {
+            height: 100vh !important;
+            overflow: hidden !important;
+        }
+
         .block-container {
-            padding-top: 0rem !important;
-            padding-bottom: 0rem !important;
-            padding-left: 0rem !important;
-            padding-right: 0rem !important;
+            padding: 0 !important;
             max-width: 100% !important;
         }
 
-        .stApp {
-            margin: 0 !important;
-            padding: 0 !important;
-        }
-
         [data-testid="stHeader"] {
-            display: none;
+            display: none !important;
         }
 
         [data-testid="stToolbar"] {
-            right: 0.5rem;
+            right: 0.5rem !important;
         }
 
         iframe {
             width: 100% !important;
+            height: 100vh !important;
             border: 0 !important;
+            display: block !important;
+        }
+
+        div[data-testid="stVerticalBlock"] > div:has(iframe) {
+            height: 100vh !important;
         }
     </style>
     """,
@@ -47,6 +50,6 @@ html_content = html_path.read_text(encoding="utf-8")
 
 components.html(
     html_content,
-    height=2200,
-    scrolling=True,
+    height=1,
+    scrolling=False,
 )
